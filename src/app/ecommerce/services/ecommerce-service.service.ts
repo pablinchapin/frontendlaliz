@@ -31,7 +31,7 @@ export class EcommerceService {
     return this.http.get(this.productsUrl);
   }
 
-  saveOrder(order : ProductOrder){
+  saveOrder(order : ProductOrders){
     return this.http.post(this.ordersUrl, order);
   }
 

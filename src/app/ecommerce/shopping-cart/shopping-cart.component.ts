@@ -10,7 +10,7 @@ import { ProductOrders } from "../models/product-orders.model";
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   orderFinished : boolean;
   orders : ProductOrders;
@@ -30,6 +30,11 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.orders = new ProductOrders();
+    this.loadCart();
+    this.loadTotal();
+
   }
 
   private calculateTotal(products : ProductOrder[]) : number{
